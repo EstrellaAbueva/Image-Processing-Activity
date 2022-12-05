@@ -62,7 +62,58 @@ namespace Abueva_DIP
 
         private void colorInversionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            processed = new Bitmap(loaded.Width, loaded.Height);
+
+            for (int i = 0; i < loaded.Width; i++)
+            {
+                for (int j = 0; j < loaded.Height; j++)
+                {
+                    c = loaded.GetPixel(i, j);
+                    int r = 255 - c.R;
+                    int g = 255 - c.G;
+                    int b = 255 - c.B;
+                    processed.SetPixel(i, j, Color.FromArgb(r, g, b));
+                }
+            }
+
+            pictureBox2.Image = processed;
+        }
+
+        private void mirrorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void horizontalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            processed = new Bitmap(loaded.Width, loaded.Height);
+
+            for (int i = 0; i < loaded.Width; i++)
+            {
+                for (int j = 0; j < loaded.Height; j++)
+                {
+                    c = loaded.GetPixel(i, j);
+                    processed.SetPixel((loaded.Width - 1) - i, j, c);
+                }
+            }
+
+            pictureBox2.Image = processed;
+        }
+
+        private void verticalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            processed = new Bitmap(loaded.Width, loaded.Height);
+
+            for (int i = 0; i < loaded.Width; i++)
+            {
+                for (int j = 0; j < loaded.Height; j++)
+                {
+                    c = loaded.GetPixel(i, j);
+                    processed.SetPixel(i, (loaded.Height - 1) - j, c);
+                }
+            }
+
+            pictureBox2.Image = processed;
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
