@@ -1,21 +1,23 @@
-# ```Image-Processing-Activity```
+# ```Image-Processing-Activity Part 1```
 
 The following: features must contain in your program:
 
 
 #### Basic Copy ####
-![image](https://user-images.githubusercontent.com/111742763/205554642-a80d7d87-37b2-4cde-871f-0cd5c6d8abcb.png)
+![image](https://user-images.githubusercontent.com/111742763/205660932-d83def62-6313-4047-b267-1ef952cd2e0f.png)
 
 #### GreyScale ####
-![image](https://user-images.githubusercontent.com/111742763/205554635-b3488861-7c69-4d38-9e14-5340f539d239.png)
+![image](https://user-images.githubusercontent.com/111742763/205661019-6480b273-0c07-43c7-8bcf-6bcc5ea00d8f.png)
 
 #### Color Inversion ####
-![image](https://user-images.githubusercontent.com/111742763/205554619-176e3ec2-00e8-4521-be17-c50b6f8f0943.png)
+![image](https://user-images.githubusercontent.com/111742763/205661082-44076434-59a1-4c2d-a429-38683b7285f6.png)
 
 #### Histogram ####
-![image](https://user-images.githubusercontent.com/111742763/205560444-1a6d4c1f-f227-4be4-9bbb-ff0c32ab80c5.png)
+![image](https://user-images.githubusercontent.com/111742763/205661122-66eb9384-8178-4184-a235-3cd212266767.png)
 
 #### Sepia ####
-![image](https://user-images.githubusercontent.com/111742763/205554695-a4303822-f93b-4d65-97b5-be566b18d33d.png)
+![image](https://user-images.githubusercontent.com/111742763/205661166-9fc13961-05a5-4c7e-be1a-cc78a5700e52.png)
 
-
+# ```Image-Processing-Activity Part 2```
+#### Subtract ####
+![image](https://user-images.githubusercontent.com/111742763/205661245-30195c46-a2be-4271-9fae-ea39a9b9c025.png)
