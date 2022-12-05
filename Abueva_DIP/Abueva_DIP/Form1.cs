@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Abueva_DIP
@@ -38,26 +33,6 @@ namespace Abueva_DIP
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialog1.Filter = "JPEG Image|*.jpg|Bitmap Image|*.bmp|GIF Image|*.gif|PNG Image|*.png";
-
-            if (saveFileDialog1.FileName != "")
-            {
-                switch (saveFileDialog1.FilterIndex)
-                {
-                    case 1:
-                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
-                        break;
-                    case 2:
-                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
-                        break;
-                    case 3:
-                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Gif);
-                        break;
-                    case 4:
-                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Png);
-                        break;
-                }
-                pictureBox2.Image.Save(saveFileDialog1.FileName);
-            }
             
             saveFileDialog1.ShowDialog();
             label1.Text = "Image Saved Successfully!";
@@ -218,7 +193,24 @@ namespace Abueva_DIP
 
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-            
+            if (saveFileDialog1.FileName != "")
+            {
+                switch (saveFileDialog1.FilterIndex)
+                {
+                    case 1:
+                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        break;
+                    case 2:
+                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
+                        break;
+                    case 3:
+                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Gif);
+                        break;
+                    case 4:
+                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                        break;
+                }
+            }
         }
 
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
