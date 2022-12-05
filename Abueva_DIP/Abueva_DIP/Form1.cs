@@ -37,8 +37,6 @@ namespace Abueva_DIP
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.ShowDialog();
-
             saveFileDialog1.Filter = "JPEG Image|*.jpg|Bitmap Image|*.bmp|GIF Image|*.gif|PNG Image|*.png";
 
             if (saveFileDialog1.FileName != "")
@@ -60,7 +58,8 @@ namespace Abueva_DIP
                 }
                 pictureBox2.Image.Save(saveFileDialog1.FileName);
             }
-
+            
+            saveFileDialog1.ShowDialog();
             label1.Text = "Image Saved Successfully!";
         }
 
