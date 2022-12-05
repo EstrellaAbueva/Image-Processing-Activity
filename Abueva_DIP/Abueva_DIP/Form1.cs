@@ -9,6 +9,7 @@ namespace Abueva_DIP
     public partial class Form1 : Form
     {
         Bitmap loaded, processed;
+        Bitmap imageA, imageB, colorgreen;
         Color c;
 
 
@@ -20,7 +21,7 @@ namespace Abueva_DIP
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             processed = new Bitmap(loaded);
-            pictureBox2.Image = processed;
+            pictureBox3.Image = processed;
 
             label1.Text = "Basic Copy";
         }
@@ -58,7 +59,7 @@ namespace Abueva_DIP
                 }
             }
 
-            pictureBox2.Image = processed;
+            pictureBox3.Image = processed;
             label1.Text = "Grey Scale";
         }
 
@@ -78,7 +79,7 @@ namespace Abueva_DIP
                 }
             }
 
-            pictureBox2.Image = processed;
+            pictureBox3.Image = processed;
             label1.Text = "Color Inversion";
         }
 
@@ -100,7 +101,7 @@ namespace Abueva_DIP
                 }
             }
 
-            pictureBox2.Image = processed;
+            pictureBox3.Image = processed;
             label1.Text = "Horizontal Mirror";
         }
 
@@ -117,7 +118,7 @@ namespace Abueva_DIP
                 }
             }
 
-            pictureBox2.Image = processed;
+            pictureBox3.Image = processed;
             label1.Text = "Vertical Mirror";
         }
 
@@ -159,7 +160,7 @@ namespace Abueva_DIP
             
             Image img = histImage;
             img.RotateFlip(RotateFlipType.Rotate180FlipNone);
-            pictureBox2.Image = histImage;
+            pictureBox3.Image = histImage;
             label1.Text = "Histogram";
         }
 
@@ -187,7 +188,7 @@ namespace Abueva_DIP
                 }
             }
 
-            pictureBox2.Image = processed;
+            pictureBox3.Image = processed;
             label1.Text = "Sepia";
         }
 
@@ -198,16 +199,16 @@ namespace Abueva_DIP
                 switch (saveFileDialog1.FilterIndex)
                 {
                     case 1:
-                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        this.pictureBox3.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
                         break;
                     case 2:
-                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
+                        this.pictureBox3.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
                         break;
                     case 3:
-                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Gif);
+                        this.pictureBox3.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Gif);
                         break;
                     case 4:
-                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                        this.pictureBox3.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Png);
                         break;
                 }
             }
@@ -216,6 +217,67 @@ namespace Abueva_DIP
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            openFileDialog2.ShowDialog();
+        }
+
+        private void openFileDialog2_FileOk(object sender, CancelEventArgs e)
+        {
+            imageB = new Bitmap(openFileDialog2.FileName);
+            pictureBox1.Image = imageB;
+        }
+
+        private void openFileDialog3_FileOk(object sender, CancelEventArgs e)
+        {
+            imageA = new Bitmap(openFileDialog3.FileName);
+            pictureBox2.Image = imageA;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = null;
+            pictureBox2.Image = null;
+            pictureBox3.Image = null;
+            label1.Text = "";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            openFileDialog3.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Bitmap resultImage = new Bitmap(imageA.Width, imageA.Height);
+
+            Color mygreen = Color.FromArgb(59, 218, 67);
+            int greygreen = (mygreen.R + mygreen.G + mygreen.B) / 3;
+            int threshold = 5;
+
+            for (int x = 0; x < imageB.Width; x++)
+            {
+                for (int y = 0; y < imageB.Height; y++)
+                {
+                    Color pixel = imageB.GetPixel(x, y);
+                    Color backpixel = imageA.GetPixel(x, y);
+                    int grey = (pixel.R + pixel.G + pixel.B) / 3;
+                    int subtractValue = Math.Abs(grey - greygreen);
+                    if (subtractValue < threshold)
+                    {
+                        resultImage.SetPixel(x, y, backpixel);
+                    }
+                    else
+                    {
+                        resultImage.SetPixel(x, y, pixel);
+                    }
+                }
+            }
+
+            pictureBox3.Image = resultImage;
+            label1.Text = "Subtract";
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
