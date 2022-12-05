@@ -13,7 +13,7 @@ The following: features must contain in your program:
 ![image](https://user-images.githubusercontent.com/111742763/205554619-176e3ec2-00e8-4521-be17-c50b6f8f0943.png)
 
 #### Histogram ####
-![image](https://user-images.githubusercontent.com/111742763/205554591-508eaca1-0660-455f-bea1-a59950219100.png)
+![image](https://user-images.githubusercontent.com/111742763/205560444-1a6d4c1f-f227-4be4-9bbb-ff0c32ab80c5.png)
 
 #### Sepia ####
 ![image](https://user-images.githubusercontent.com/111742763/205554695-a4303822-f93b-4d65-97b5-be566b18d33d.png)
