@@ -26,6 +26,8 @@ namespace Abueva_DIP
         {
             processed = new Bitmap(loaded);
             pictureBox2.Image = processed;
+
+            label1.Text = "Basic Copy";
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -36,6 +38,30 @@ namespace Abueva_DIP
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialog1.ShowDialog();
+
+            saveFileDialog1.Filter = "JPEG Image|*.jpg|Bitmap Image|*.bmp|GIF Image|*.gif|PNG Image|*.png";
+
+            if (saveFileDialog1.FileName != "")
+            {
+                switch (saveFileDialog1.FilterIndex)
+                {
+                    case 1:
+                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        break;
+                    case 2:
+                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
+                        break;
+                    case 3:
+                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Gif);
+                        break;
+                    case 4:
+                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                        break;
+                }
+                pictureBox2.Image.Save(saveFileDialog1.FileName);
+            }
+
+            label1.Text = "Image Saved Successfully!";
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
@@ -59,6 +85,7 @@ namespace Abueva_DIP
             }
 
             pictureBox2.Image = processed;
+            label1.Text = "Grey Scale";
         }
 
         private void colorInversionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -78,6 +105,7 @@ namespace Abueva_DIP
             }
 
             pictureBox2.Image = processed;
+            label1.Text = "Color Inversion";
         }
 
         private void mirrorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -99,6 +127,7 @@ namespace Abueva_DIP
             }
 
             pictureBox2.Image = processed;
+            label1.Text = "Horizontal Mirror";
         }
 
         private void verticalToolStripMenuItem_Click(object sender, EventArgs e)
@@ -115,6 +144,7 @@ namespace Abueva_DIP
             }
 
             pictureBox2.Image = processed;
+            label1.Text = "Vertical Mirror";
         }
 
         private void histrogramToolStripMenuItem_Click(object sender, EventArgs e)
@@ -156,6 +186,7 @@ namespace Abueva_DIP
             Image img = histImage;
             img.RotateFlip(RotateFlipType.Rotate180FlipNone);
             pictureBox2.Image = histImage;
+            label1.Text = "Histogram";
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -183,32 +214,12 @@ namespace Abueva_DIP
             }
 
             pictureBox2.Image = processed;
+            label1.Text = "Sepia";
         }
 
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-            saveFileDialog1.Filter = "JPEG Image|*.jpg|Bitmap Image|*.bmp|GIF Image|*.gif|PNG Image|*.png";
-
-            if (saveFileDialog1.FileName != "")
-            {
-                switch (saveFileDialog1.FilterIndex)
-                {
-                    case 1:
-                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
-                        break;
-                    case 2:
-                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
-                        break;
-                    case 3:
-                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Gif);
-                        break;
-                    case 4:
-                        this.pictureBox2.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Png);
-                        break;
-                }
-            }
             
-            label1.Text = "Image Saved Successfully!";
         }
 
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)

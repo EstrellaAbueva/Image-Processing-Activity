@@ -160,7 +160,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(36, 40);
+            this.pictureBox1.Location = new System.Drawing.Point(35, 64);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(420, 343);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -169,7 +169,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(473, 40);
+            this.pictureBox2.Location = new System.Drawing.Point(472, 64);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(420, 343);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -187,9 +187,9 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(470, 399);
+            this.label1.Location = new System.Drawing.Point(32, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(322, 23);
+            this.label1.Size = new System.Drawing.Size(860, 23);
             this.label1.TabIndex = 3;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
