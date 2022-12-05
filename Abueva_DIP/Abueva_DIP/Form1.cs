@@ -152,7 +152,9 @@ namespace Abueva_DIP
                     }
                 }
             }
-
+            
+            Image img = histImage;
+            img.RotateFlip(RotateFlipType.Rotate180FlipNone);
             pictureBox2.Image = histImage;
         }
 
@@ -207,6 +209,11 @@ namespace Abueva_DIP
             }
             
             label1.Text = "Image Saved Successfully!";
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
